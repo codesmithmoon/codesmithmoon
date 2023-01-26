@@ -11,8 +11,24 @@ datasource db {
     relationMode = "prisma"
 }
 
-model Example {
+model User {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
+    email     String
+    password  String
+    avatar    String?
+    save_1    Json?
+    save_2    Json?
+    save_3    Json?
+    session   Session?
+}
+
+model Session {
+    id        String   @id @default(cuid())
+    userId    String   @unique
+    user      User     @relation(fields: [userId], references: [id])
+    createdAt DateTime @default(now())
+    expiresAt DateTime @default(now())
+    token     String
 }
