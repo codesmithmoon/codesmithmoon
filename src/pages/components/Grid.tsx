@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import Square from './Square';
 
 const Grid: React.FC = () => {
-  const [grid, setGrid] = useState<(string | null )[][]>(
-    Array(13).fill(Array(10).fill('box'))
+  const [grid, setGrid] = useState<(boolean )[][]>(
+    Array(13).fill(Array(10).fill(true))
   );
+   
 
   // const handleClick = (row: number, col: number) => {
   //   const newGrid = [...grid];
@@ -20,7 +21,7 @@ const Grid: React.FC = () => {
         <div className="row" key={i}>
           {row.map((col, j) => (
             <Square
-              value={grid[i] && grid[i][j] ? grid[i][j] : 'box'}
+              value={true}
               //onClick={() => handleClick(i, j)}
               key={j}
             />
@@ -30,5 +31,5 @@ const Grid: React.FC = () => {
     </div>
   );
 };
-
+//grid[i]?[j] ? grid[i]?[j] : 'box'
 export default Grid;

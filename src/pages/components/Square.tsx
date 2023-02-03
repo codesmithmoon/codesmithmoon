@@ -1,12 +1,12 @@
 interface SquareProps {
-    value?: string | null;
+    value?: boolean;
    
   }
   
-  const Square: React.FC<SquareProps> = (props) => {
+  const Square: React.FC<SquareProps> = ({ value }) => {
     return (
       <div className="square" >
-        {props.value}
+        {value}
       </div>
     );
   };
