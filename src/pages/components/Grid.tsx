@@ -5,15 +5,15 @@ const Grid: React.FC = () => {
   const [grid, setGrid] = useState<(boolean )[][]>(
     Array(13).fill(Array(10).fill(true))
   );
-   
+  console.log('grid--->', grid);
+  // const [plow, setPlow] = useState<(boolean) [][]> ()
 
-  // const handleClick = (row: number, col: number) => {
-  //   const newGrid = [...grid];
-   
-  //   newGrid[row][col] = "Michelle";
-    
-  //   setGrid(newGrid);
-  // }; 
+  const handleClick = (row: number, col: number) => {
+  const newGrid: boolean[][] = [...grid];
+  newGrid[row][col] = false;
+  console.log('clicked');
+  setGrid(newGrid);
+  }; 
 
   return (
     <div className="grid">
@@ -21,8 +21,8 @@ const Grid: React.FC = () => {
         <div className="row" key={i}>
           {row.map((col, j) => (
             <Square
-              value={true}
-              //onClick={() => handleClick(i, j)}
+              value={grid[i][j]}
+              onClick={() => handleClick(i, j)}
               key={j}
             />
           ))}
